@@ -10,14 +10,6 @@ $color-secondary: #FBFEFD;
 $color-red: #EB1C22;
 $color-red-dark: #BB1C1C;
 
-
-/*========== Font and typography Variables ==========*/
-$body-font: 'Lato', sans-serif;
-
-/*========== Font weight Variables ==========*/
-$font-medium: 500;
-$font-semi-bold: 600;
-
 /*========== Margins Variables ==========*/
 $mb-1: .5rem;
 $mb-2: 1rem;
@@ -32,16 +24,27 @@ $nav-height-small: 5rem;
 $z-tooltip: 10;
 $z-fixed: 100;
 
+/*========== root variable ==========*/
+:root {
+    --fs-a: 16rem;
+    --fs-p: 1.6rem;
+    --fs-h1: 2rem;
+    --fs-h2: 1.6rem;
+
+    --fw-h1: 600;
+    --fw-h2: 500;
+}
+
 /*========== Mixin ==========*/
 @mixin style-link-text {
     text-decoration: none;
     text-transform: uppercase;
 }
 
-@mixin padding-margin-width {
+@mixin large-padding-margin-width {
     max-width: 102.4rem;
     margin: 0 auto;
-    padding: 0 2rem 0 2rem;
+    padding: 0 $mb-4 0 $mb-4;
 }
 
 /*========== BASE ==========*/
@@ -58,21 +61,32 @@ html {
     font-size: 62.5%; // 1rem = 10px
 }
 
-a {
-    @include style-link-text;
-}
-
 body {
-    font-family: $body-font;
+    font-family: 'Lato', sans-serif;
     background-color: $color-secondary;
     color: $color-primary;
     line-height: 1.6;
     //position: relative;
+    padding-bottom: 20rem;
 }
 
 ul {
     list-style: none;
     padding: 0;
+}
+
+a {
+    @include style-link-text;
+}
+
+h1 {
+    font-size: var(--fs-h1);
+    font-weight: var(--fw-h1);
+}
+
+p {
+    font-size: var(--fs-p);
+    text-align: justify;
 }
 
 .header-1 {
@@ -87,7 +101,7 @@ ul {
 
   /*========== NAV ==========*/
 .nav {
-    @include padding-margin-width();
+    @include large-padding-margin-width();
     height: $nav-height-large;
     display: flex;
     justify-content: space-between;
@@ -120,7 +134,7 @@ ul {
     &__toggle {
         color: $color-secondary;
         font-size: 1.6rem;
-        font-weight: $font-semi-bold;
+        font-weight: var(--fw-h1);
     }
 
     &__logo:hover {
@@ -177,37 +191,40 @@ ul {
     }
 
     &__text {
-        @include padding-margin-width();
+        @include large-padding-margin-width();
         height: 100%;
         display: flex;
         align-items: center;
 
         a, p {
-            font-size: 1.6rem;
-            font-weight: $font-medium;
+            font-size: var(--fs-p);
+            font-weight: var(--fw-h2);
             color: $color-secondary;
             white-space: pre-line;
         }
 
         a {
-            padding: .5rem 1.2rem;
+            padding: $mb-1 $mb-2;
             background-color: $color-red-dark;
-            margin-right: $mb-3;
+            margin-right: $mb-4;
         }
 
         @media screen and (max-width: 768px) {
             a {
                 padding: .1rem .9rem;
+                font-size: 1.4rem;
             }
         }
     }
 }
 
+  /*========== SECTION 1 ==========*/
 .section-1 {
-    @include padding-margin-width();
+    @include large-padding-margin-width();
     height: 40rem;
 
     display: flex;
+    flex-wrap: wrap;
 
     &__col-1-of-2 {
         width: calc(100% / 2);
@@ -235,14 +252,66 @@ ul {
         text-shadow: 1px 1px $color-primary;
 
         h1 {
-            font-size: 2rem;
-            font-weight: $font-semi-bold;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
+    }
+}
 
-        p {
-            font-size: 1.6rem;
+  /*========== SECTION 1 ==========*/
+.section-2 {
+    // border: 1px solid red;
+    // max-width: 96rem;
+    // height: 20rem;
+    
+    @include large-padding-margin-width();
+    margin-top: $mb-4;
+
+    display: grid;
+    grid-gap: $mb-3 $mb-4;
+
+    
+    grid-template-columns: repeat(2, 1fr) 2fr;
+    grid-template-areas: "article1 article2 article3"
+                         "article1 article2 article4"
+                         "article1 article2 article5";
+    
+
+    @media screen and (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "article3 article3"
+                         "article4 article4"
+                         "article5 article5"
+                         "article1 article2";
+
+    }
+
+    .article-1 { grid-area: article1;}
+    .article-2 { grid-area: article2;}
+    .article-3 { grid-area: article3;}
+    .article-4 { grid-area: article4;}
+    .article-5 { grid-area: article5;}
+
+    .article {
+        border-bottom: 1px solid rgb(196, 195, 195);
+        padding-bottom: $mb-3;
+
+        img {
+            width: 100%;
+        }
+
+        h1 {
+            margin-bottom: $mb-2;
+        }
+
+        &-3,&-4,&-5 {
+            display: flex;
+            
+            img {
+                width: 30%;
+                height: 100%;
+                margin-right: $mb-4;
+            }
         }
     }
 }
