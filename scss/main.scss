@@ -4,35 +4,41 @@
 /*===== BOX ICONS =====*/
 @import url("https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css");
 
-/*===== Color Variables =====*/
-$color-primary: black;
-$color-secondary: #FBFEFD;
-$color-red: #EB1C22;
-$color-red-dark: #BB1C1C;
 
-/*========== Margins Variables ==========*/
-$mb-1: .5rem;
-$mb-2: 1rem;
-$mb-3: 1.5rem;
-$mb-4: 2rem;
-$mb-5: 2.5rem;
-$mb-6: 3rem;
-$nav-height-large: 7rem;
-$nav-height-small: 5rem;
-
-/*========== z index Variables ==========*/
-$z-tooltip: 10;
-$z-fixed: 100;
 
 /*========== root variable ==========*/
 :root {
-    --fs-a: 16rem;
+    //===== Font Size =====//
+    --fs-a: 1.6rem;
     --fs-p: 1.6rem;
     --fs-h1: 2rem;
     --fs-h2: 1.6rem;
 
+    //===== Font Weight =====//
     --fw-h1: 600;
     --fw-h2: 500;
+
+    //====== Color =======//
+    --color-primary: black;
+    --color-secondary: #FBFEFD;
+    --color-red: #EB1C22;
+    --color-red-dark: #BB1C1C;
+    --color-border: rgb(196, 195, 195);
+
+    //===== Z index variable =====//
+    //--z-tooltip: 10;
+    --z-fixed: 100;
+
+    //===== Margin variable =====//
+    --mb-1: .5rem;
+    --mb-2: 1rem;
+    --mb-3: 1.5rem;
+    --mb-4: 2rem;
+    --mb-5: 2.5rem;
+    --mb-6: 3rem;
+    --mb-8: 4rem;
+    --nav-height-large: 7rem;
+    --nav-height-small: 5rem;
 }
 
 /*========== Mixin ==========*/
@@ -44,7 +50,7 @@ $z-fixed: 100;
 @mixin large-padding-margin-width {
     max-width: 102.4rem;
     margin: 0 auto;
-    padding: 0 $mb-4 0 $mb-4;
+    padding: 0 var(--mb-4) 0 var(--mb-4);
 }
 
 /*========== BASE ==========*/
@@ -63,11 +69,9 @@ html {
 
 body {
     font-family: 'Lato', sans-serif;
-    background-color: $color-secondary;
-    color: $color-primary;
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
     line-height: 1.6;
-    //position: relative;
-    padding-bottom: 20rem;
 }
 
 ul {
@@ -95,20 +99,20 @@ p {
     
     top: 0;
     left: 0;
-    z-index: $z-fixed;
-    background-color: $color-primary;
+    z-index: var(--z-fixed);
+    background-color: var(--color-primary);
 }
 
   /*========== NAV ==========*/
 .nav {
     @include large-padding-margin-width();
-    height: $nav-height-large;
+    height: var(--nav-height-large);
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     @media screen and (max-width: 768px) {
-        height: $nav-height-small;
+        height: var(--nav-height-small);
 
         &__menu {
             position: fixed;
@@ -117,35 +121,35 @@ p {
             width: 100%;
             padding: 1.5rem 0 1rem;
             text-align: center;
-            background-color: $color-primary;
+            background-color: var(--color-primary);
             transition: .4s;
             box-shadow: 0 4px 4px rgba(0,0,0,.1);
             border-radius: 0 0 1rem 1rem;
-            z-index: $z-fixed;
+            z-index: var(--z-fixed);
         }
     }
 
     &__item {
-        margin-bottom: $mb-2;
+        margin-bottom: var(--mb-2);
     }
 
     &__link,
     &__logo,
     &__toggle {
-        color: $color-secondary;
+        color: var(--color-secondary);
         font-size: 1.6rem;
         font-weight: var(--fw-h1);
     }
 
     &__logo:hover {
-        border-bottom: 2px solid $color-red;
+        border-bottom: 2px solid var(--color-red);
     }
 
     &__link {
         transition: .3s;
 
         &:hover, &--active {
-            border-bottom: 2px solid $color-red;
+            border-bottom: 2px solid var(--color-red);
             padding-bottom: 3px;
         }
     }
@@ -167,7 +171,7 @@ p {
     }
 
     .nav__item {
-        margin-left: $mb-5;
+        margin-left: var(--mb-5);
         margin-bottom: 0;    
     }
 
@@ -179,14 +183,14 @@ p {
 .header-2 {
     width: 100%;
     height: 5rem;
-    background-color: $color-red;
+    background-color: var(--color-red);
     
     // position: absolute;
-    margin-top: $nav-height-large;
+    margin-top: var(--nav-height-large);
 
 
     @media screen and (max-width: 768px) {
-        margin-top: $nav-height-small;
+        margin-top: var(--nav-height-small);
         height: 3.5rem;
     }
 
@@ -199,14 +203,14 @@ p {
         a, p {
             font-size: var(--fs-p);
             font-weight: var(--fw-h2);
-            color: $color-secondary;
+            color: var(--color-secondary);
             white-space: pre-line;
         }
 
         a {
-            padding: $mb-1 $mb-2;
-            background-color: $color-red-dark;
-            margin-right: $mb-4;
+            padding: var(--mb-1) var(--mb-2);
+            background-color: var(--color-red)-dark;
+            margin-right: var(--mb-4);
         }
 
         @media screen and (max-width: 768px) {
@@ -248,8 +252,8 @@ p {
         bottom: 3rem;
         left: 2.5rem;
 
-        color: $color-secondary;
-        text-shadow: 1px 1px $color-primary;
+        color: var(--color-secondary);
+        text-shadow: 1px 1px var(--color-primary);
 
         h1 {
             text-transform: uppercase;
@@ -259,16 +263,12 @@ p {
 }
 
   /*========== SECTION 1 ==========*/
-.section-2 {
-    // border: 1px solid red;
-    // max-width: 96rem;
-    // height: 20rem;
-    
+.section-2 { 
     @include large-padding-margin-width();
-    margin-top: $mb-4;
+    margin-top: var(--mb-4);
 
     display: grid;
-    grid-gap: $mb-3 $mb-4;
+    grid-gap: var(--mb-3) var(--mb-4);
 
     
     grid-template-columns: repeat(2, 1fr) 2fr;
@@ -293,15 +293,15 @@ p {
     .article-5 { grid-area: article5;}
 
     .article {
-        border-bottom: 1px solid rgb(196, 195, 195);
-        padding-bottom: $mb-3;
+        border-bottom: 1px solid var(--color-border);
+        padding-bottom: var(--mb-3);
 
         img {
             width: 100%;
         }
 
         h1 {
-            margin-bottom: $mb-2;
+            margin-bottom: var(--mb-2);
         }
 
         &-3,&-4,&-5 {
@@ -310,8 +310,45 @@ p {
             img {
                 width: 30%;
                 min-height: 100%;
-                margin-right: $mb-4;
+                margin-right: var(--mb-4);
             }
         }
     }
+}
+
+.footer {
+    @include large-padding-margin-width();
+
+    margin: var(--mb-8) auto;
+    padding-bottom: var(--mb-6);
+
+    nav {
+        width: 100%;
+        border-top: 1px solid var(--color-border);
+    }
+
+    &__main-ul {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    &__sub-ul {
+        a {
+            text-transform: initial;
+            font-size: var(--fs-a);
+        }
+    }
+
+    &__main-li {
+        padding-top: var(--mb-6);
+        margin-right: var(--mb-4);
+        
+        &--heading {
+            font-size: var(--fs-a);
+            font-weight: var(--fw-h1);
+        }
+    }
+
 }
