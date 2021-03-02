@@ -23,6 +23,8 @@
   --mb-5: 2.5rem;
   --mb-6: 3rem;
   --mb-8: 4rem;
+  --mb-9: 4.5rem;
+  --mb-10: 5rem;
   --nav-height-large: 7rem;
   --nav-height-small: 5rem;
 }
@@ -51,7 +53,6 @@ body {
 
 ul {
   list-style: none;
-  padding: 0;
 }
 
 a {
@@ -293,7 +294,7 @@ p {
 
 .section-2 .article-3 img, .section-2 .article-4 img, .section-2 .article-5 img {
   width: 30%;
-  min-height: 100%;
+  height: 100%;
   margin-right: var(--mb-4);
 }
 
@@ -302,12 +303,14 @@ p {
   margin: 0 auto;
   padding: 0 var(--mb-4) 0 var(--mb-4);
   margin: var(--mb-8) auto;
-  padding-bottom: var(--mb-6);
+  padding-bottom: calc(var(--mb-10) * 2);
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+  position: relative;
 }
 
 .footer nav {
   width: 100%;
-  border-top: 1px solid var(--color-border);
 }
 
 .footer__main-ul {
@@ -326,10 +329,47 @@ p {
 .footer__main-li {
   padding-top: var(--mb-6);
   margin-right: var(--mb-4);
+  color: var(--color-secondary);
 }
 
 .footer__main-li--heading {
   font-size: var(--fs-a);
   font-weight: var(--fw-h1);
+}
+
+.footer .social-icons {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: var(--mb-8);
+}
+
+.footer .social-icons p {
+  border-right: 1px solid var(--color-border);
+  padding-right: var(--mb-6);
+}
+
+.footer .social-icons ul {
+  display: flex;
+  padding-left: var(--mb-6);
+}
+
+.footer .social-icons ul .fa {
+  width: 4rem;
+  height: 4rem;
+  margin-right: 1rem;
+  font-size: 2rem;
+  padding: 1rem;
+  color: var(--color-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+}
+
+.footer .social-icons ul .fa:hover {
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
 }
 /*# sourceMappingURL=main.css.map */
